@@ -1,19 +1,44 @@
 package nl.javacursus.gajemee.model;
 
+import static org.assertj.core.api.Assertions.setMaxLengthForSingleLineDescription;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Profile {
 
 	private String userName;
 	private String email;
 	private String passWord;
-	private String userLocation;
+	private Coordinates coordinates;
 	private LocalDate birthday;
 	private LocalDate creationProfile;
 	private boolean loggedOn;
+	private static List <Categories> preferences = new ArrayList<>();
+	
+	public Profile(String name, String email, String passWord, Coordinates location, LocalDate birthday){
+		this.userName = name;
+		this.email = email;
+		this.passWord = passWord;
+		this.coordinates = location;
+		this.birthday = birthday;
+		setDefaultList();
+	}
+	
+	public void setDefaultList() {
+		for(Categories a: Categories.values()) {
+			preferences.add(a);
+		}
+	}
+	
+		
+	public static List<Categories> getPreferences() {
+		return preferences;
+	}
 
-	public Profile() {
-
+	public static void setPreferences(List<Categories> preferences) {
+		Profile.preferences = preferences;
 	}
 
 	public String getUserName() {
@@ -40,12 +65,13 @@ public class Profile {
 		this.passWord = passWord;
 	}
 
-	public String getUserLocation() {
-		return userLocation;
+
+	public Coordinates getCoordinates() {
+		return coordinates;
 	}
 
-	public void setUserLocation(String userLocation) {
-		this.userLocation = userLocation;
+	public void setCoordinates(Coordinates coordinates) {
+		this.coordinates = coordinates;
 	}
 
 	public LocalDate getBirthday() {

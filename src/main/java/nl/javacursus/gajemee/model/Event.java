@@ -1,45 +1,36 @@
 package nl.javacursus.gajemee.model;
 
+import java.time.*;
+
 public class Event {
 
 	private String eventName;
-	private String date; // convert time?
-	private String time; // Hoe van een vaste vorm? Hoe fouten in invoer onderscheppen?
-	private String location; // google maps?
+	private LocalDate date;
+	private LocalTime time; 
+	private Coordinates coordinates;
 	private Categories category;
 	private boolean attend = true;
-
+	private String message;
+	
 	// is de counter bij aanmaak van het event Object
 	// eventID = lijst van events.lengte +1
 
-	private int eventID;
 	
 	public Event() {
 	}
 	
-	
 
-	public Event(String eventName, String date, String time, String location, Categories category, boolean attend,
-			int eventID) {
+	public Event(String eventName, LocalDate date, LocalTime time, Coordinates coordinates, Categories category, String message) {
 		super();
 		this.eventName = eventName;
 		this.date = date;
 		this.time = time;
-		this.location = location;
+		this.coordinates = coordinates;
 		this.category = category;
 		this.attend = attend;
-		this.eventID = eventID;
 	}
 
 
-
-	public int getEventID() {
-		return eventID;
-	}
-
-	public void setEventID(int eventID) {
-		this.eventID = eventID;
-	}
 
 	public String getEventName() {
 		return eventName;
@@ -49,29 +40,42 @@ public class Event {
 		this.eventName = eventName;
 	}
 
-	public String getDate() {
+	public LocalDate getLocalDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setLocalDate(LocalDate date) {
 		this.date = date;
 	}
 
-	public String getTime() {
+	public LocalTime getTime() {
 		return time;
 	}
 
-	public void setTime(String time) {
+	public void setTime(LocalTime time) {
 		this.time = time;
 	}
 
-	public String getLocation() {
-		return location;
+	
+	public Coordinates getCoordinates() {
+		return coordinates;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+
+	public void setCoordinates(Coordinates coordinates) {
+		this.coordinates = coordinates;
 	}
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 
 	public Categories getCategory() {
 		return category;
