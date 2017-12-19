@@ -5,15 +5,20 @@ import java.util.List;
 import nl.javacursus.gajemee.model.*;
 import java.time.*;
 
-public class ProfileDAO {
-	
+public class ProfileDAO implements IProfileDAO {
+
 	private static List<Profile> profiles = new ArrayList<>();
 	private int profileID;
 	
+	public List<Profile> findAll(){
+		return this.profiles;
+	}
+	
+	
 	static {
-		profiles.add(new Profile("Heike van der Vliet", "heikevandervliet@hotmail.com", "geheim", new Coordinates(36.386, -127.441406), LocalDate.of(1985, 11, 11)));
-		profiles.add(new Profile("Esther", "esther@apekop.nl", "12345", new Coordinates(-127.324, 35.3678), LocalDate.of(1986, 9, 05)));
-		profiles.add(new Profile("Jan", "jan@clicknet.nl", "password", new Coordinates(52.2390773, 4.7939868), LocalDate.of(1991, 3, 18)));
+		profiles.add(new Profile("Heike", LocalDate.of(1985, 11, 11)));
+		profiles.add(new Profile("Esther", LocalDate.of(1986, 9, 05)));
+		profiles.add(new Profile("Jan", LocalDate.of(1991, 3, 18)));
 	}
 	
 	
