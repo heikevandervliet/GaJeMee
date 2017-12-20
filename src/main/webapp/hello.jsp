@@ -5,13 +5,16 @@
 <title>Hello ${name}</title>
 </head>
 <body>
-	Hello ${name}
+	<h1>Ga Je Mee!?</h1>
+	<br /> Hello ${name}
 	<br />
 	<br />
 
 	<c:forEach items="${events}" var="event">
-		Name: <c:out value="${event.eventName}" />
-		Date: <c:out value="${event.date}" />
+		<br />Name: <c:out value="${event.eventName}" />
+		<br />Date: <c:out value="${event.date}" />
+		<br />Time: <c:out value="${event.time}" />
+		<br />Message: <c:out value="${event.message}" />
 		<br />
 	</c:forEach>
 </body>

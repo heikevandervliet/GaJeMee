@@ -10,6 +10,4 @@ public interface IEventDAO {
 
 	public Event findEvent(String eventName);
 
-	public ArrayList<Event> findPreferences(Enum Categories);
-
 }
