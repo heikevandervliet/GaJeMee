@@ -7,15 +7,12 @@ public class Event {
 	private String eventName;
 	private LocalDate date;
 	private Categories category;
-	
-	
+
 	// is de counter bij aanmaak van het event Object
 	// eventID = lijst van events.lengte +1
 
-	
 	public Event() {
 	}
-	
 
 	public Event(String eventName, LocalDate date, Categories category) {
 		super();
@@ -23,8 +20,6 @@ public class Event {
 		this.date = date;
 		this.category = category;
 	}
-
-
 
 	public String getEventName() {
 		return eventName;
@@ -34,14 +29,13 @@ public class Event {
 		this.eventName = eventName;
 	}
 
-	public LocalDate getLocalDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setLocalDate(LocalDate date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-
 
 	public Categories getCategory() {
 		return category;
@@ -51,5 +45,4 @@ public class Event {
 		this.category = category;
 	}
 
-	
 }

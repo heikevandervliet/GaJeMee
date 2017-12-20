@@ -1,17 +1,15 @@
 package nl.javacursus.gajemee.dao;
 
-import nl.javacursus.gajemee.model.*;
-import nl.javacursus.gajemee.service.*;
-import nl.javacursus.gajemee.web.*;
-import nl.javacursus.gajemee.dao.*;
-
 import java.util.List;
-import java.util.ArrayList;
 
+import nl.javacursus.gajemee.model.Profile;
 
 public interface IProfileDAO {
-	
+
 	public List<Profile> findAll();
+
+	public Profile findOne(int profileID);
+
 	public abstract Profile findProfile(String name);
 
 }

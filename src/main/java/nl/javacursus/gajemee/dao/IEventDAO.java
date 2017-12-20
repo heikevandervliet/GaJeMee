@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface IEventDAO {
-	
+
 	List<Event> findAll();
+
 	public Event findEvent(String eventName);
-	public ArrayList findPreferences(Enum Categories);
+
+	public ArrayList<Event> findPreferences(Enum Categories);
 
 }
