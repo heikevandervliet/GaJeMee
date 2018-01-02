@@ -2,6 +2,9 @@ package nl.javacursus.gajemee.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
+import java.util.ArrayList;
+import nl.javacursus.gajemee.dao.*;
 
 public class Event {
 
@@ -10,8 +13,8 @@ public class Event {
 	private LocalTime time;
 	private Coordinates coordinates;
 	private Categories category;
-	private boolean attend = true;
 	private String message;
+	private List<Profile> attendees = new ArrayList<>();
 
 	// is de counter bij aanmaak van het event Object
 	// eventID = lijst van events.lengte +1
@@ -19,8 +22,12 @@ public class Event {
 	public Event() {
 	}
 
+	public List<Profile> getAttendees() {
+		return attendees;
+	}
+
 	public Event(String eventName, LocalDate date, LocalTime time, Coordinates coordinates, Categories category,
-			String message) {
+			String message, Profile profile) {
 		super();
 		this.eventName = eventName;
 		this.date = date;
@@ -28,7 +35,7 @@ public class Event {
 		this.coordinates = coordinates;
 		this.category = category;
 		this.message = message;
-
+		attendees.add(profile);
 	}
 
 	public String getEventName() {
@@ -69,14 +76,6 @@ public class Event {
 
 	public void setCategory(Categories category) {
 		this.category = category;
-	}
-
-	public boolean isAttend() {
-		return attend;
-	}
-
-	public void setAttend(boolean attend) {
-		this.attend = attend;
 	}
 
 	public String getMessage() {

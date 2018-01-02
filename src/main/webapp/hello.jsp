@@ -15,6 +15,7 @@
 		<br />Date: <c:out value="${event.date}" />
 		<br />Time: <c:out value="${event.time}" />
 		<br />Message: <c:out value="${event.message}" />
+		<br />Attendees: <c:out value="${event.getAttendees().size()}" />
 		<br />
 	</c:forEach>
 </body>

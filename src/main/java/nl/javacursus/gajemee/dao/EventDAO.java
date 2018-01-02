@@ -5,6 +5,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import nl.javacursus.gajemee.model.Categories;
@@ -14,21 +17,25 @@ import nl.javacursus.gajemee.model.Event;
 @Repository
 public class EventDAO implements IEventDAO {
 
-	private static List<Event> events = new ArrayList<>();
+	private List<Event> events = new ArrayList<>();
 	// private int eventID;
+	
+	@Autowired
+	private IProfileDAO iProfileDAO;
 
 	public List<Event> findAll() {
 		return this.events;
 	}
 	// =index in ArrayList.
 
-	static {
+	@PostConstruct
+	 public void init(){
 		events.add(new Event("Spelletjesavond", LocalDate.of(2017, 12, 30), LocalTime.of(20, 30),
-				new Coordinates(10.0, 10.0), Categories.SPELLEN, "Ik wil graag Mysterium met jullie spelen!"));
+				new Coordinates(10.0, 10.0), Categories.SPELLEN, "Ik wil graag Mysterium met jullie spelen!", this.iProfileDAO.findAll().get(0)));
 		events.add(new Event("Bowlen", LocalDate.of(2017, 12, 31), LocalTime.of(20, 00), new Coordinates(15.0, 15.0),
-				Categories.SPORTIEF, "Lekker bowlen!"));
+				Categories.SPORTIEF, "Lekker bowlen!", this.iProfileDAO.findAll().get(1)));
 		events.add(new Event("Saunabezoek", LocalDate.of(2018, 01, 05), LocalTime.of(11, 15),
-				new Coordinates(50.0, 50.0), Categories.ONTSPANNING, "Toe aan een dagje niksen:)"));
+				new Coordinates(50.0, 50.0), Categories.ONTSPANNING, "Toe aan een dagje niksen:)", this.iProfileDAO.findAll().get(2)));
 	}
 
 	public Event findEvent(String eventName) throws NullPointerException {
