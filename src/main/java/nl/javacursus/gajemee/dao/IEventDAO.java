@@ -1,8 +1,8 @@
 package nl.javacursus.gajemee.dao;
 
-import nl.javacursus.gajemee.model.*;
-import java.util.ArrayList;
 import java.util.List;
+
+import nl.javacursus.gajemee.model.Event;
 
 public interface IEventDAO {
 
